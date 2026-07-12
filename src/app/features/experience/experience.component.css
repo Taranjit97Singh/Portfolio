@@ -1,0 +1,201 @@
+.experience-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Timeline Layout */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--border-color);
+  transform: translateX(-50%);
+}
+
+/* Items */
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  margin-bottom: 3.5rem;
+  width: 50%;
+}
+
+.timeline-item.left-aligned {
+  align-self: flex-start;
+  justify-content: flex-start;
+  padding-right: 3rem;
+  left: 0;
+}
+
+.timeline-item.right-aligned {
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-left: 3rem;
+  left: 50%;
+}
+
+/* Central Dots */
+.timeline-node {
+  position: absolute;
+  top: 2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3px solid var(--border-color);
+  z-index: 5;
+  transition: all var(--transition-normal);
+}
+
+.timeline-item.left-aligned .timeline-node {
+  right: -8px;
+}
+
+.timeline-item.right-aligned .timeline-node {
+  left: -8px;
+}
+
+.timeline-node.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+/* Pulse indicator for current job */
+.node-pulse {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  animation: nodePulse 1.5s infinite;
+}
+
+@keyframes nodePulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Content Card */
+.timeline-content {
+  width: 100%;
+  padding: 2rem;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.company-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.period-badge {
+  font-size: 0.8rem;
+  font-family: var(--font-code);
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.period-badge.current {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+  color: var(--color-primary);
+}
+
+.location-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Bullets */
+.experience-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience-bullets li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.experience-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+/* Tech List */
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    width: 100% !important;
+    left: 0 !important;
+    padding-left: 2.5rem !important;
+    padding-right: 0 !important;
+    margin-bottom: 2.5rem;
+  }
+  
+  .timeline-node {
+    left: 12px !important;
+    right: auto !important;
+  }
+  
+  .timeline-meta {
+    align-items: flex-start;
+  }
+}

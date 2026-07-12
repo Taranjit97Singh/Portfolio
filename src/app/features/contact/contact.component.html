@@ -1,0 +1,142 @@
+<section id="contact" class="contact-section" *ngIf="profile">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Reach Out</span>
+      <h2 class="section-title">Get In Touch</h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left Column: Contact Cards -->
+      <div class="contact-info">
+        <h3 class="info-title">Let's build something beautiful together</h3>
+        <p class="info-desc">
+          I am always open to discussing new development opportunities, open-source projects, or architectural design reviews. Drop me a line!
+        </p>
+
+        <div class="info-cards">
+          <!-- Email Card -->
+          <div class="info-card glass-card">
+            <div class="info-icon-container">
+              <svg class="info-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h4>Email Me</h4>
+              <a [href]="'mailto:' + profile.socials.email" class="info-link" id="contact-email-link">{{ profile.socials.email }}</a>
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div class="info-card glass-card">
+            <div class="info-icon-container">
+              <svg class="info-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p class="info-val">India, Remote</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="contact-form-container">
+        <!-- Success State -->
+        <div *ngIf="submitSuccess" class="success-card glass-card text-center" id="contact-success-card">
+          <div class="success-icon-wrapper">
+            <svg class="success-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+          <button (click)="resetFormState()" class="btn btn-primary" id="btn-send-another">
+            Send Another Message
+          </button>
+        </div>
+
+        <!-- Form State -->
+        <form 
+          *ngIf="!submitSuccess" 
+          [formGroup]="contactForm" 
+          (ngSubmit)="onSubmit()" 
+          class="contact-form glass-card"
+          novalidate
+        >
+          <!-- Name Field -->
+          <div class="form-group" [class.error]="isFieldInvalid('name')">
+            <label for="contact-name">Full Name</label>
+            <input 
+              type="text" 
+              id="contact-name" 
+              formControlName="name" 
+              placeholder="Full Name"
+            />
+            <span *ngIf="isFieldInvalid('name')" class="error-msg">
+              Name must be at least 2 characters.
+            </span>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group" [class.error]="isFieldInvalid('email')">
+            <label for="contact-email">Email Address</label>
+            <input 
+              type="email" 
+              id="contact-email" 
+              formControlName="email" 
+              placeholder="Email"
+            />
+            <span *ngIf="isFieldInvalid('email')" class="error-msg">
+              Please enter a valid email address.
+            </span>
+          </div>
+
+          <!-- Subject Field -->
+          <div class="form-group" [class.error]="isFieldInvalid('subject')">
+            <label for="contact-subject">Subject</label>
+            <input 
+              type="text" 
+              id="contact-subject" 
+              formControlName="subject" 
+              placeholder="Subject"
+            />
+            <span *ngIf="isFieldInvalid('subject')" class="error-msg">
+              Subject must be at least 5 characters.
+            </span>
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group" [class.error]="isFieldInvalid('message')">
+            <label for="contact-message">Message</label>
+            <textarea 
+              id="contact-message" 
+              formControlName="message" 
+              rows="5" 
+              placeholder="Message"
+            ></textarea>
+            <span *ngIf="isFieldInvalid('message')" class="error-msg">
+              Message must be at least 10 characters.
+            </span>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            [disabled]="isSubmitting" 
+            class="btn btn-primary btn-submit"
+            id="contact-submit-btn"
+          >
+            <span *ngIf="!isSubmitting">Send Message</span>
+            <span *ngIf="isSubmitting" class="loader-container">
+              <span class="spinner"></span> Sending...
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

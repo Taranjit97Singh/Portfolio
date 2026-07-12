@@ -1,0 +1,62 @@
+<section id="home" class="hero" *ngIf="profile">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="container hero-grid">
+    <!-- Left Column: Introduction -->
+    <div class="hero-content">
+      <div class="greeting-badge">
+        <span class="pulse-dot"></span>
+        Available for new projects
+      </div>
+      
+      <h1 class="hero-name">
+        Hi, I'm <span class="text-gradient">{{ profile.name }}</span>
+      </h1>
+      
+      <h2 class="hero-subtitle">{{ profile.title }}</h2>
+      <p class="hero-bio">{{ profile.bio }}</p>
+      
+      <div class="hero-actions">
+        <a routerLink="/projects" class="btn btn-primary" id="cta-view-projects">
+          View Projects
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <a routerLink="/contact" class="btn btn-secondary" id="cta-contact-me">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Code Terminal Mockup -->
+    <div class="hero-visual">
+      <div class="code-window glass-card">
+        <div class="window-header">
+          <div class="window-dots">
+            <span class="dot dot-close"></span>
+            <span class="dot dot-minimize"></span>
+            <span class="dot dot-maximize"></span>
+          </div>
+          <span class="window-title">taranjit.ts</span>
+        </div>
+        <div class="window-body">
+          <pre class="code-content"><code><span class="keyword">const</span> <span class="variable">developer</span> = {{ '{' }}
+  <span class="property">name</span>: <span class="string">'Taranjit Singh'</span>,
+  <span class="property">role</span>: <span class="string">'Full Stack Developer'</span>,
+  <span class="property">specialty</span>: <span class="string">'Angular, Asp.Net Core, SQL'</span>,
+  <span class="property">passion</span>: <span class="string">'Crafting visual & performance-driven web apps'</span>,
+  <span class="property">traits</span>: [<span class="string">'Pixel Perfect'</span>, <span class="string">'Responsive'</span>, <span class="string">'Clean Code'</span>],
+  <span class="property">location</span>: <span class="string">'India'</span>,
+  <span class="property">readyToCode</span>: <span class="boolean">true</span>
+{{ '}' }};
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

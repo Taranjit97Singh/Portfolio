@@ -1,0 +1,58 @@
+<header class="navbar" [ngClass]="{ 'scrolled': isScrolled }">
+  <div class="container nav-container">
+    <a routerLink="/home" class="logo">
+      <span class="logo-code"></span>Taranjit Singh<span class="logo-code"></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li *ngFor="let item of navItems">
+          <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/home' }">{{ item.label }}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right Side Actions -->
+    <div class="actions">
+      <!-- Theme Switcher Button -->
+      <button 
+        id="theme-toggle-btn"
+        (click)="toggleTheme()" 
+        class="theme-btn" 
+        [title]="isDarkTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+        aria-label="Toggle visual theme"
+      >
+        <!-- Moon Icon (shows in light mode to switch to dark) -->
+        <svg *ngIf="!isDarkTheme" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
+          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+        </svg>
+        <!-- Sun Icon (shows in dark mode to switch to light) -->
+        <svg *ngIf="isDarkTheme" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21m9.75-9h-2.25m-13.5 0H3m14.004-6.293l-1.591 1.591M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9zm-14.004 6.293l1.591-1.591m0-12.586l1.591 1.591M12 18.75V21m-4.757-4.757l-1.591 1.591" />
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        id="mobile-menu-toggle-btn"
+        (click)="toggleMobileMenu()" 
+        class="mobile-menu-btn" 
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Toggle mobile menu"
+      >
+        <span class="hamburger" [ngClass]="{ 'open': isMobileMenuOpen }"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" [ngClass]="{ 'open': isMobileMenuOpen }">
+    <ul class="mobile-links">
+      <li *ngFor="let item of navItems">
+        <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/home' }" (click)="closeMobileMenu()">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+</header>
+

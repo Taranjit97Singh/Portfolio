@@ -1,0 +1,78 @@
+<section id="about" class="about-section" *ngIf="profile">
+  <div class="container">
+    <div class="section-header">
+      <!-- <span class="section-subtitle">Introduction</span> -->
+      <h2 class="section-title">About Me</h2>
+    </div>
+
+    <div class="about-grid">
+      <!-- Left Column: Stats & Deco Avatar -->
+      <div class="about-visual">
+        <div class="profile-card glass-card">
+          <div class="avatar-container">
+            <!-- Sleek abstract SVG instead of profile picture -->
+            <svg viewBox="0 0 100 100" class="deco-avatar">
+              <defs>
+                <linearGradient id="avatar-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--color-primary)" />
+                  <stop offset="100%" stop-color="var(--color-secondary)" />
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="45" fill="url(#avatar-grad)" opacity="0.1" stroke="url(#avatar-grad)" stroke-width="1.5" />
+              <path d="M50,25 C38.9,25 30,33.9 30,45 C30,53.4 35.1,60.6 42.4,63.6 C43.2,63.9 43.6,63.4 43.6,62.8 C43.6,62.3 43.6,60.9 43.6,59.2 C38,60.4 36.8,56.5 36.8,56.5 C35.9,54.2 34.6,53.6 34.6,53.6 C32.8,52.4 34.7,52.4 34.7,52.4 C36.7,52.5 37.8,54.4 37.8,54.4 C39.6,57.5 42.5,56.6 43.6,56.1 C43.8,54.8 44.3,53.9 44.9,53.4 C40.4,52.9 35.7,51.2 35.7,43.5 C35.7,41.3 36.5,39.5 37.8,38.1 C37.6,37.6 36.9,35.5 38,32.7 C38,32.7 39.7,32.2 43.6,34.8 C45.2,34.4 46.9,34.2 48.6,34.2 C50.3,34.2 52,34.4 53.6,34.8 C57.5,32.2 59.2,32.7 59.2,32.7 C60.3,35.5 59.6,37.6 59.4,38.1 C60.7,39.5 61.5,41.3 61.5,43.5 C61.5,51.2 56.8,52.9 52.3,53.4 C53,54 53.6,55.2 53.6,57 C53.6,59.6 53.6,61.7 53.6,62.3 C53.6,62.9 54,63.4 54.8,63.2 C62.1,60.2 67.2,53 67.2,45 C67.2,33.9 59.5,25 50,25 Z" fill="var(--color-primary)" />
+            </svg>
+            <div class="avatar-ring"></div>
+          </div>
+          
+          <div class="stats-grid">
+            <div class="stat-box" *ngFor="let stat of stats">
+              <span class="stat-value text-gradient">{{ stat.value }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Biography & Highlights & Education -->
+      <div class="about-content">
+        <h3 class="about-headline">Developing solutions at the intersection of design and scale</h3>
+        <p class="about-bio">
+          Hi! I'm Taranjit. I am an experienced Full Stack Developer currently working as an Assistant Technical in the Department of Good Governance & Information Technology, Punjab.
+        </p>
+        <p class="about-bio">
+          Over the past 3 years, I have built and optimized enterprise-grade e-governance systems. I specialize in designing secure Web APIs (ASP.NET Core, Node.js) and responsive frontend applications (Angular, React) that process transaction workflows for lakhs of state beneficiaries.
+        </p>
+
+        <div class="highlights-list">
+          <div class="highlight-item" *ngFor="let item of highlights">
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{{ item }}</span>
+          </div>
+        </div>
+
+        <!-- Education Sub-section -->
+        <div class="education-section-block">
+          <h3 class="education-title-header">Education</h3>
+          <div class="education-list">
+            <div class="education-card glass-card" *ngFor="let edu of education">
+              <div class="edu-icon-container">
+                <svg class="edu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <div class="edu-content">
+                <span class="edu-period">{{ edu.period }}</span>
+                <h4 class="edu-degree">{{ edu.degree }}</h4>
+                <p class="edu-institution">{{ edu.institution }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

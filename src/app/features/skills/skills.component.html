@@ -1,0 +1,38 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Excellence</span>
+      <h2 class="section-title">Skills & Tech Stack</h2>
+    </div>
+
+    <!-- Interactive Tabs -->
+    <div class="tabs-container">
+      <button 
+        *ngFor="let tab of tabs" 
+        [id]="'skills-tab-' + tab.key"
+        [class.active]="activeTab === tab.key" 
+        (click)="setTab(tab.key)" 
+        class="tab-btn"
+      >
+        {{ tab.label }}
+      </button>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <div 
+        *ngFor="let skill of filteredSkills" 
+        class="skill-card glass-card"
+      >
+        <div class="skill-info">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-percentage">{{ skill.level }}%</span>
+        </div>
+        <div class="progress-bar-track">
+          <!-- Width is bound to skill level -->
+          <div class="progress-bar-fill" [style.width.%]="skill.level"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

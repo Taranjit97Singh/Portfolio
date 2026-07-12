@@ -1,0 +1,98 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Portfolio</span>
+      <!-- <h6 class="section-title">Selected Projects</h6> -->
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filters-container">
+      <button 
+        *ngFor="let filter of filters" 
+        [id]="'projects-filter-' + filter.key"
+        [class.active]="activeFilter === filter.key" 
+        (click)="setFilter(filter.key)" 
+        class="filter-btn"
+      >
+        {{ filter.label }}
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <article 
+        *ngFor="let project of filteredProjects" 
+        class="project-card glass-card"
+      >
+        <!-- Project Mockup Header -->
+        <div class="project-banner">
+          <div class="banner-gradient {{ project.imageName }}-bg">
+            <span class="banner-tag">{{ project.category | uppercase }}</span>
+            <div class="banner-decor">
+              <span class="decor-circle"></span>
+              <span class="decor-line"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="project-info">
+          <div class="project-tech">
+            <span *ngFor="let tech of project.tech.slice(0, 3)" class="tech-tag">{{ tech }}</span>
+            <span *ngIf="project.tech.length > 3" class="tech-tag-more">+{{ project.tech.length - 3 }}</span>
+          </div>
+          
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          
+          <div class="project-links">
+            <button (click)="openDetails(project)" class="btn-text" [id]="'project-details-btn-' + project.id">
+              Learn More
+              <svg class="arrow-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Expanded Details Modal Overlay -->
+  <div *ngIf="selectedProject" class="modal-overlay" (click)="closeDetails()">
+    <div class="modal-card glass-card" (click)="$event.stopPropagation()">
+      <button (click)="closeDetails()" class="modal-close" id="close-project-modal" aria-label="Close details">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="close-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="modal-grid">
+        <div class="modal-visual {{ selectedProject.imageName }}-bg">
+          <div class="modal-visual-overlay"></div>
+          <span class="modal-category">{{ selectedProject.category | uppercase }}</span>
+        </div>
+
+        <div class="modal-content">
+          <h3 class="modal-title">{{ selectedProject.title }}</h3>
+          <div class="modal-tech-list">
+            <span *ngFor="let tech of selectedProject.tech" class="badge">{{ tech }}</span>
+          </div>
+          <p class="modal-desc">{{ selectedProject.longDescription || selectedProject.description }}</p>
+          
+          <div class="modal-actions">
+            <a *ngIf="selectedProject.liveUrl" [href]="selectedProject.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-live-link">
+              Launch App
+              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+            <a *ngIf="selectedProject.githubUrl" [href]="selectedProject.githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="modal-github-link">
+              GitHub Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

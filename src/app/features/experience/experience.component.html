@@ -1,0 +1,51 @@
+<section id="experience" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Journey</span>
+      <h2 class="section-title">Work Experience</h2>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="timeline-container">
+      <!-- Central Line -->
+      <div class="timeline-line"></div>
+
+      <!-- Timeline Items -->
+      <div 
+        *ngFor="let exp of experiences; let i = index" 
+        class="timeline-item"
+        [class.left-aligned]="i % 2 === 0"
+        [class.right-aligned]="i % 2 !== 0"
+      >
+        <!-- Node Dot -->
+        <div class="timeline-node" [class.active]="exp.current">
+          <span *ngIf="exp.current" class="node-pulse"></span>
+        </div>
+
+        <!-- Content Card -->
+        <div class="timeline-content glass-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="role-title">{{ exp.role }}</h3>
+              <span class="company-name">{{ exp.company }}</span>
+            </div>
+            <div class="timeline-meta">
+              <span class="period-badge" [class.current]="exp.current">{{ exp.period }}</span>
+              <span class="location-text">{{ exp.location }}</span>
+            </div>
+          </div>
+
+          <!-- Bullet Points -->
+          <ul class="experience-bullets">
+            <li *ngFor="let point of exp.description">{{ point }}</li>
+          </ul>
+
+          <!-- Tech Used -->
+          <div class="timeline-tech">
+            <span *ngFor="let tech of exp.tech" class="badge">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
