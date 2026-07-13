@@ -13,8 +13,8 @@ export class PortfolioService {
     bio: 'Dedicated Full Stack Developer with 3+ years of experience building secure, scalable, and responsive E-Governance web applications and API architectures for the Government of Punjab. Proven expertise in frontend frameworks, backend web APIs (ASP.NET Core, Node.js), database design, and AI-powered integrations like face verification and document training.',
     avatarUrl: 'assets/avatar.png',
     socials: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
+      github: 'https://github.com/Taranjit97Singh',
+      linkedin: 'https://www.linkedin.com/in/taranjit-singh-3aa829130/',
       email: 's.taranjit97@gmail.com',
       phone: '+91 8699747574'
     },
@@ -83,7 +83,7 @@ export class PortfolioService {
       tech: ['Vanilla Js', 'Python', 'OpenAI API', 'Azure Blob', 'HTML/CSS'],
       category: 'fullstack',
       imageName: 'neuralsynth_ai',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://connect.punjab.gov.in/',
       featured: true
     },
     {
@@ -104,7 +104,7 @@ export class PortfolioService {
       tech: ['Angular','REST APIs', 'SQL','OTP Integration', 'Bootstrap'],
       category: 'fullstack',
       imageName: 'horizon_analytics',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://connect.punjab.gov.in/',
       featured: true
     },
     {

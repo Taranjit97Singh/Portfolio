@@ -160,14 +160,14 @@ body.light-theme .greeting-badge {
   font-family: var(--font-code);
   font-size: 0.85rem;
   line-height: 1.7;
-  color: #cbd5e1;
+  color: #303438;
 }
 
 /* Syntax Highlighting */
 .keyword { color: #f43f5e; font-weight: 600; }
 .variable { color: #f87171; }
-.property { color: #38bdf8; }
-.string { color: #34d399; }
+.property { color: #077cad; }
+.string { color: #15b97d; }
 .boolean { color: #fbbf24; }
 .comment { color: #64748b; font-style: italic; }
 .function { color: #a78bfa; }
