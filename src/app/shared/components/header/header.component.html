@@ -1,6 +1,6 @@
 <header class="navbar" [ngClass]="{ 'scrolled': isScrolled }">
   <div class="container nav-container">
-    <a routerLink="/home" class="logo">
+    <a routerLink="/" class="logo">
       <span class="logo-code"></span>Taranjit Singh<span class="logo-code"></span>
     </a>
 
@@ -8,7 +8,7 @@
     <nav class="desktop-nav">
       <ul class="nav-links">
         <li *ngFor="let item of navItems">
-          <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/home' }">{{ item.label }}</a>
+          <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/' }">{{ item.label }}</a>
         </li>
       </ul>
     </nav>
@@ -50,7 +50,7 @@
   <div class="mobile-nav-drawer" [ngClass]="{ 'open': isMobileMenuOpen }">
     <ul class="mobile-links">
       <li *ngFor="let item of navItems">
-        <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/home' }" (click)="closeMobileMenu()">{{ item.label }}</a>
+        <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.route === '/' }" (click)="closeMobileMenu()">{{ item.label }}</a>
       </li>
     </ul>
   </div>
