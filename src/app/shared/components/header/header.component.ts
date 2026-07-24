@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
 
   navItems = [
-    { label: 'Home', route: '/home' },
+    { label: 'Home', route: '/' },
     { label: 'About', route: '/about' },
     { label: 'Skills', route: '/skills' },
     { label: 'Projects', route: '/projects' },
