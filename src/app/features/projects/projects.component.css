@@ -203,8 +203,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -361,6 +361,24 @@ body.light-theme .modal-visual-overlay {
   }
   .modal-title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filters-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem 0.75rem 0.5rem;
+    gap: 0.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters-container::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn {
+    flex: 0 0 auto;
   }
 }
 

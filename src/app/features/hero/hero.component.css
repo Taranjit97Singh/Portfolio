@@ -216,9 +216,6 @@ body.light-theme .comment { color: #64748b; }
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .hero-visual {
-    order: -1;
-  }
   .hero {
     padding-top: calc(var(--header-height) + 1rem);
   }

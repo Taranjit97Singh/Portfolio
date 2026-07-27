@@ -200,4 +200,31 @@
   }
 }
 
+@media (max-width: 480px) {
+  .timeline-line {
+    left: 15px;
+  }
+  
+  .timeline-item {
+    padding-left: 1.75rem !important;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-node {
+    left: 7px !important;
+  }
+  
+  .timeline-content {
+    padding: 1.25rem;
+  }
+  
+  .timeline-header {
+    gap: 0.5rem;
+  }
+  
+  .role-title {
+    font-size: 1.15rem;
+  }
+}
+
 

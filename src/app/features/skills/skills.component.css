@@ -100,9 +100,19 @@ body.light-theme .progress-bar-track {
 /* Responsive */
 @media (max-width: 576px) {
   .tabs-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem 0.75rem 0.5rem;
     gap: 0.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs-container::-webkit-scrollbar {
+    display: none;
   }
   .tab-btn {
+    flex: 0 0 auto;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }

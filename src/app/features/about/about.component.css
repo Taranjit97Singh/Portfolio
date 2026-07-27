@@ -216,6 +216,9 @@
 }
 
 @media (max-width: 480px) {
+  .profile-card {
+    padding: 1.5rem 1.25rem;
+  }
   .highlights-list {
     grid-template-columns: 1fr;
   }
