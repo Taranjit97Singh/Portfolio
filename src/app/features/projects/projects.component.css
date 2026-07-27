@@ -38,7 +38,7 @@
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
 }
 
@@ -346,6 +346,9 @@ body.light-theme .modal-visual-overlay {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+  }
   .modal-grid {
     grid-template-columns: 1fr;
   }
@@ -354,15 +357,28 @@ body.light-theme .modal-visual-overlay {
     height: 200px;
   }
   .modal-content {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .modal-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  .modal-content {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+  .modal-title {
+    font-size: 1.35rem;
+  }
+  .modal-actions {
+    flex-direction: column;
+  }
+  .modal-actions .btn {
+    width: 100%;
   }
 }

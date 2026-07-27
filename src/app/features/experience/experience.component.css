@@ -177,7 +177,7 @@
 }
 
 /* Responsive Styling */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .timeline-line {
     left: 20px;
   }
@@ -199,3 +199,5 @@
     align-items: flex-start;
   }
 }
+
+
