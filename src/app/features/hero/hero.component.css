@@ -161,6 +161,7 @@ body.light-theme .greeting-badge {
   font-size: 0.85rem;
   line-height: 1.7;
   color: #303438;
+  white-space: pre-wrap;
 }
 
 /* Syntax Highlighting */
