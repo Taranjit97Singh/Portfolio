@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   profile!: Profile;
 
   stats = [
-    { value: '3+', label: 'Years Experience' },
+    { value: '4+', label: 'Years Experience' },
     { value: '12+', label: 'Projects Built' },
     { value: '4+', label: 'State Departments Served' },
     { value: '1cr+', label: 'Beneficiaries Impacted' }

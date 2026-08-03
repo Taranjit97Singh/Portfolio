@@ -10,7 +10,7 @@ export class PortfolioService {
     name: 'Taranjit Singh',
     title: 'Full Stack Developer',
     subTitle: 'Full Stack Developer at Dept. of Good Governance and IT, Punjab',
-    bio: 'Dedicated Full Stack Developer with 3+ years of experience building secure, scalable, and responsive E-Governance web applications and API architectures for the Government of Punjab. Proven expertise in frontend frameworks, backend web APIs (ASP.NET Core, Node.js), database design, and AI-powered integrations like face verification and document training.',
+    bio: 'Dedicated Full Stack Developer with 4+ years of experience building secure, scalable, and responsive E-Governance web applications and API architectures for the Government of Punjab. Proven expertise in frontend frameworks, backend web APIs (ASP.NET Core, Node.js), database design, and AI-powered integrations like face verification and document training.',
     avatarUrl: 'assets/avatar.png',
     socials: {
       github: 'https://github.com/Taranjit97Singh',
